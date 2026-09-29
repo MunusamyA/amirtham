@@ -1,0 +1,15 @@
+{
+    "name": "starter/php-erp-starter-kit",
+    "description": "Reusable PHP ERP starter kit with multi-company scope, numeric permissions, replaceable theme, stateless security and encrypted SMTP configuration",
+    "type": "project",
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "ext-fileinfo": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "phpmailer/phpmailer": "^6.9",
+        "setasign/fpdf": "1.9"
+    }
+}

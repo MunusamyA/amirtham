@@ -1,0 +1,21 @@
+/* Amirtham Integrated Management — CORE
+   Structural foundation only. Do not place customer design values here. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { min-height: 100%; scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-primary);
+  background: var(--canvas);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+img, svg, video { max-width: 100%; }
+.hidden { display: none !important; }
+[hidden] { display: none !important; }

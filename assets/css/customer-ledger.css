@@ -1,0 +1,129 @@
+.ledger-filter-card {
+    margin-bottom: 16px;
+}
+
+.ledger-customer-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--theme-border, #d9dee7);
+    border-radius: 10px;
+    background: var(--theme-surface, #fff);
+}
+
+.ledger-customer-strip strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.ledger-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.ledger-summary-card {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--theme-border, #d9dee7);
+    border-radius: 10px;
+    background: var(--theme-surface, #fff);
+}
+
+.ledger-summary-card span,
+.ledger-summary-card small {
+    display: block;
+    color: var(--theme-text-muted, #6b7280);
+}
+
+.ledger-summary-card strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--theme-text, #111827);
+}
+
+.ledger-summary-emphasis {
+    border-width: 2px;
+}
+
+.ledger-warning {
+    margin-bottom: 16px;
+    padding: 11px 13px;
+    border: 1px solid var(--theme-warning, #d97706);
+    border-radius: 9px;
+    background: var(--theme-surface, #fff);
+    font-size: .9rem;
+}
+
+.ledger-plus {
+    color: #15803d;
+    font-weight: 700;
+}
+
+.ledger-minus {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+.ledger-zero {
+    color: var(--theme-text-muted, #6b7280);
+    font-weight: 600;
+}
+
+.ledger-balance-due,
+.ledger-balance-credit {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.ledger-balance-credit {
+    color: #15803d;
+}
+
+.ledger-type {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.ledger-type-opening,
+.ledger-type-brought_forward {
+    color: var(--theme-text-muted, #6b7280);
+}
+
+.ledger-type-sale {
+    color: var(--theme-text, #111827);
+}
+
+.ledger-type-payment,
+.ledger-type-sale_return {
+    color: #166534;
+}
+
+.ledger-type-refund {
+    color: #92400e;
+}
+
+@media (max-width: 1100px) {
+    .ledger-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .ledger-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ledger-customer-strip {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

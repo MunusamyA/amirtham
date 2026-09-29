@@ -1,0 +1,493 @@
+/*
+ * Amirtham Integrated Management — CUSTOMER THEME
+ * =====================================
+ * Change this file for a new customer. core.css and components.css are reusable.
+ *
+ * This file owns customer design tokens: colours, typography, radius, spacing,
+ * density, dimensions, shadows, motion and light/dark appearance.
+ */
+
+:root {
+  /* ------------------------------------------------------------------------
+   * Typography
+   * --------------------------------------------------------------------- */
+  --font-primary: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-primary);
+  --font-brand: Georgia, "Times New Roman", serif;
+
+  --font-size-micro: 8px;
+  --font-size-micro-plus: 8.5px;
+  --font-size-3xs: 9px;
+  --font-size-3xs-plus: 9.5px;
+  --font-size-2xs: 10px;
+  --font-size-2xs-plus: 10.5px;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-md: 13px;
+  --font-size-base: 14px;
+  --font-size-control: 15px;
+  --font-size-lg: 16px;
+  --font-size-lg-plus: 17px;
+  --font-size-xl-small: 18px;
+  --font-size-xl: 20px;
+  --font-size-xl-plus: 21px;
+  --font-size-brand-small: 22px;
+  --font-size-2xl: 24px;
+  --font-size-brand: 26px;
+  --font-size-title: 27px;
+  --font-size-display: 35px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 650;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+
+  /* ------------------------------------------------------------------------
+   * Spacing / density
+   * --------------------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 14px;
+  --space-7: 16px;
+  --space-8: 20px;
+  --space-9: 24px;
+
+  --page-padding: 20px;
+  --card-padding: 16px;
+  --form-gap: 14px;
+  --table-cell-x: 12px;
+  --table-cell-y: 10px;
+
+  /* ------------------------------------------------------------------------
+   * Radius
+   * --------------------------------------------------------------------- */
+  --radius-xs: 5px;
+  --radius-sm: 7px;
+  --radius-md: 9px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  --button-radius: var(--radius-md);
+  --input-radius: var(--radius-md);
+  --card-radius: var(--radius-lg);
+  --table-radius: var(--radius-md);
+  --modal-radius: var(--radius-xl);
+  --sidebar-item-radius: var(--radius-sm);
+
+  /* ------------------------------------------------------------------------
+   * Layout dimensions
+   * --------------------------------------------------------------------- */
+  --sidebar-expanded-width: 208px;
+  --sidebar-collapsed-width: 64px;
+  --sidebar-expanded-width-compact: 224px;
+  --sidebar-width: var(--sidebar-expanded-width);
+  --topbar-height: 56px;
+  --topbar-height-mobile: 50px;
+  --submenu-width: 238px;
+  --submenu-gap: 8px;
+  --viewport-gap: 8px;
+  --modal-width-sm: 420px;
+  --modal-width-md: 560px;
+  --modal-width-lg: 760px;
+  --modal-width-xl: 980px;
+
+  --control-height-md: 34px;
+  --control-height-mobile: 32px;
+  --input-height: 40px;
+  --button-height: 38px;
+  --table-row-height: 42px;
+  --icon-size: 16px;
+
+  /* ------------------------------------------------------------------------
+   * Motion
+   * --------------------------------------------------------------------- */
+  --transition-fast: .16s;
+  --transition-normal: .22s;
+  --transition-slow: .30s;
+
+  /* ------------------------------------------------------------------------
+   * Brand / semantic colour system
+   * --------------------------------------------------------------------- */
+  --primary-deep: #003f2e;
+  --primary-strong: #00523b;
+  --primary: #006647;
+  --primary-medium: #087b55;
+  --primary-light: #0b8f61;
+  --primary-soft: #dff3e9;
+  --primary-subtle: #f2faf6;
+  --primary-border: color-mix(in srgb, var(--primary-medium) 42%, var(--neutral-0));
+  --primary-border-soft: color-mix(in srgb, var(--primary-medium) 24%, var(--neutral-0));
+
+  --accent: #e6a323;
+  --accent-teal: #0ea5a0;
+  --accent-teal-light: color-mix(in srgb, var(--accent-teal) 78%, var(--neutral-0));
+  --accent-teal-strong: color-mix(in srgb, var(--accent-teal) 78%, var(--neutral-900));
+
+  --success: #22c55e;
+  --success-strong: color-mix(in srgb, var(--success) 78%, var(--neutral-900));
+  --success-deep: color-mix(in srgb, var(--success) 62%, var(--neutral-900));
+  --success-light: color-mix(in srgb, var(--success) 52%, var(--neutral-0));
+  --success-border: color-mix(in srgb, var(--success) 30%, var(--neutral-0));
+  --success-soft: color-mix(in srgb, var(--success) 18%, var(--neutral-0));
+  --success-subtle: color-mix(in srgb, var(--success) 7%, var(--neutral-0));
+
+  --danger: #ef4444;
+  --danger-strong: color-mix(in srgb, var(--danger) 80%, var(--neutral-900));
+  --danger-deep: color-mix(in srgb, var(--danger) 62%, var(--neutral-900));
+  --danger-light: color-mix(in srgb, var(--danger) 52%, var(--neutral-0));
+  --danger-border: color-mix(in srgb, var(--danger) 30%, var(--neutral-0));
+  --danger-soft: color-mix(in srgb, var(--danger) 18%, var(--neutral-0));
+  --danger-subtle: color-mix(in srgb, var(--danger) 7%, var(--neutral-0));
+
+  --warning: #f59e0b;
+  --warning-strong: color-mix(in srgb, var(--warning) 78%, var(--danger-strong));
+  --warning-deep: color-mix(in srgb, var(--warning) 58%, var(--neutral-900));
+  --warning-light: color-mix(in srgb, var(--warning) 52%, var(--neutral-0));
+  --warning-border: color-mix(in srgb, var(--warning) 30%, var(--neutral-0));
+  --warning-soft: color-mix(in srgb, var(--warning) 18%, var(--neutral-0));
+
+  --info: #2878cc;
+  --info-light: color-mix(in srgb, var(--info) 76%, var(--neutral-0));
+  --info-strong: color-mix(in srgb, var(--info) 76%, var(--neutral-900));
+  --info-soft: color-mix(in srgb, var(--info) 14%, var(--neutral-0));
+
+  /* Neutral palette is structural, not customer business logic. */
+  --neutral-0: #ffffff;
+  --neutral-50: #fafbfa;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+
+  /* ------------------------------------------------------------------------
+   * Light appearance source values. Theme Settings may override these.
+   * --------------------------------------------------------------------- */
+  --light-text-primary: #111827;
+  --light-text-secondary: #374151;
+  --light-text-muted: #6b7280;
+  --light-text-disabled: #9ca3af;
+  --light-border: #e5e7eb;
+  --light-border-strong: #cbd5e1;
+  --light-surface: #ffffff;
+  --light-surface-soft: #fafbfa;
+  --light-surface-muted: #f3f4f6;
+  --light-canvas: #f6f8f7;
+
+  /* ------------------------------------------------------------------------
+   * Dark appearance source values
+   * --------------------------------------------------------------------- */
+  --dark-text-primary: #f7fbff;
+  --dark-text-secondary: #d1d5db;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #29364b;
+  --dark-border-strong: #334155;
+  --dark-surface: #111827;
+  --dark-surface-elevated: #111a2a;
+  --dark-canvas: #0b1220;
+  --dark-sidebar-start: #07150f;
+  --dark-sidebar-mid: #02070c;
+  --dark-sidebar-end: #010407;
+  --dark-sidebar-text: rgba(245, 251, 248, .84);
+  --dark-sidebar-muted: rgba(235, 247, 241, .58);
+
+  /* ------------------------------------------------------------------------
+   * Sidebar
+   * --------------------------------------------------------------------- */
+  --sidebar-bg: var(--primary-deep);
+  --sidebar-gradient-mid: var(--primary-strong);
+  --sidebar-gradient-end: var(--primary-deep);
+  --sidebar-text: var(--inverse-strong);
+  --sidebar-muted: var(--inverse-muted);
+  --sidebar-border: var(--inverse-soft);
+  --sidebar-hover-bg: var(--inverse-soft);
+  --sidebar-active-start: color-mix(in srgb, var(--primary-light) 82%, transparent);
+  --sidebar-active-end: color-mix(in srgb, var(--primary-medium) 82%, transparent);
+  --sidebar-glow: color-mix(in srgb, var(--accent) 12%, transparent);
+
+  /* ------------------------------------------------------------------------
+   * Overlays / glass / shadows
+   * --------------------------------------------------------------------- */
+  --surface-glass: rgba(255, 255, 255, .95);
+  --surface-glass-soft: rgba(242, 250, 246, .70);
+  --overlay: rgba(4, 35, 25, .52);
+  --overlay-soft: rgba(4, 35, 25, .45);
+
+  --inverse-hairline: rgba(255, 255, 255, .015);
+  --inverse-faint: rgba(255, 255, 255, .07);
+  --inverse-soft: rgba(255, 255, 255, .09);
+  --inverse-medium: rgba(255, 255, 255, .24);
+  --inverse-muted: rgba(255, 255, 255, .62);
+  --inverse-strong: rgba(255, 255, 255, .90);
+
+  --shadow-color-subtle: rgba(17, 24, 39, .02);
+  --shadow-color-soft: rgba(0, 0, 0, .12);
+  --shadow-color-medium: rgba(0, 0, 0, .22);
+  --shadow-color-strong: rgba(0, 0, 0, .36);
+  --shadow-color-modal: rgba(0, 48, 33, .30);
+  --shadow-color-sidebar: rgba(0, 55, 39, .12);
+  --shadow-color-primary: rgba(0, 73, 52, .09);
+  --shadow-color-primary-soft: rgba(0, 75, 53, .06);
+  --shadow-color-auth: rgba(15, 23, 42, .12);
+
+  --shadow-sm: 0 2px 5px var(--shadow-color-subtle);
+  --shadow-md: 0 10px 28px var(--shadow-color-primary);
+  --shadow-lg: 0 18px 42px var(--shadow-color-medium);
+  --sidebar-shadow: 10px 0 30px var(--shadow-color-sidebar);
+  --dark-sidebar-shadow: 12px 0 34px var(--shadow-color-medium);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-dark: 0 10px 28px var(--shadow-color-soft);
+  --card-hover-shadow: 0 7px 18px var(--shadow-color-primary-soft);
+  --button-hover-shadow: 0 6px 14px var(--shadow-color-primary);
+  --control-knob-shadow: 0 1px 3px var(--shadow-color-medium);
+  --dropdown-shadow: 0 18px 45px var(--shadow-color-medium);
+  --dropdown-shadow-dark: 0 18px 42px var(--shadow-color-strong);
+  --flyout-shadow: 0 18px 42px color-mix(in srgb, var(--text-primary) 18%, transparent);
+  --modal-shadow: 0 28px 80px var(--shadow-color-modal);
+  --toast-shadow: 0 10px 28px var(--shadow-color-medium);
+  --auth-shadow: 0 18px 45px var(--shadow-color-auth);
+  --floating-control-shadow: 0 4px 14px color-mix(in srgb, var(--text-primary) 10%, transparent);
+  --pagination-shadow: 0 4px 12px color-mix(in srgb, var(--primary-strong) 14%, transparent);
+
+  --focus-ring: rgba(11, 143, 97, .11);
+  --danger-ring: rgba(239, 68, 68, .09);
+  --success-hover-dark: rgba(22, 101, 52, .22);
+  --danger-hover-dark: rgba(185, 28, 28, .22);
+
+  /* ------------------------------------------------------------------------
+   * Reusable component source tokens
+   * --------------------------------------------------------------------- */
+  --primary-focus-ring: color-mix(in srgb, var(--primary-medium) 16%, transparent);
+  --progress-track: #edf1ef;
+  --control-track: #cfd7d3;
+  --upload-border: color-mix(in srgb, var(--primary-medium) 40%, var(--neutral-0));
+
+  --surface-alt: color-mix(in srgb, var(--primary-subtle) 42%, var(--light-surface));
+  --surface-hover: color-mix(in srgb, var(--primary-soft) 42%, var(--light-surface));
+  --table-row-odd: var(--light-surface);
+  --table-row-even: color-mix(in srgb, var(--primary-subtle) 52%, var(--light-surface));
+  --table-row-hover: color-mix(in srgb, var(--primary-soft) 42%, var(--light-surface));
+
+  --text-on-primary: var(--neutral-0);
+  --text-on-danger: var(--neutral-0);
+  --text-on-dark: var(--neutral-0);
+
+  /* Z-index scale */
+  --z-overlay: 45;
+  --z-sidebar: 50;
+  --z-flyout: 55;
+  --z-topbar: 60;
+  --z-boundary: 65;
+  --z-dropdown: 70;
+  --z-modal: 100;
+  --z-global-select: 120;
+  --z-toast: 140;
+}
+
+
+/* ========================================================================
+ * BUILT-IN THEME PRESETS
+ * ------------------------------------------------------------------------
+ * A preset changes the complete visual profile: brand palette, typography,
+ * radius, density, component sizes, sidebar/topbar dimensions and shadows.
+ * Runtime code only sets data-theme-preset on <html>.
+ * ====================================================================== */
+
+html[data-theme-preset="forest"] {
+  --font-primary: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-primary);
+  --font-brand: Georgia, "Times New Roman", serif;
+  --radius-sm: 7px; --radius-md: 9px; --radius-lg: 12px; --radius-xl: 16px;
+  --page-padding: 20px; --card-padding: 16px; --form-gap: 14px;
+  --sidebar-expanded-width: 208px; --sidebar-collapsed-width: 64px; --topbar-height: 56px; --submenu-width: 238px;
+  --input-height: 40px; --button-height: 38px; --table-row-height: 42px; --icon-size: 16px;
+  --primary-deep: #003f2e; --primary-strong: #00523b; --primary: #006647; --primary-medium: #087b55; --primary-light: #0b8f61;
+  --primary-soft: #dff3e9; --primary-subtle: #f2faf6; --accent: #e6a323; --accent-teal: #0ea5a0;
+  --light-text-primary: #111827; --light-text-secondary: #374151; --light-text-muted: #6b7280; --light-border: #e5e7eb; --light-surface: #ffffff; --light-canvas: #f6f8f7;
+  --dark-sidebar-start: #07150f; --dark-sidebar-mid: #02070c; --dark-sidebar-end: #010407;
+  --shadow-color-primary: rgba(0, 73, 52, .09); --shadow-color-sidebar: rgba(0, 55, 39, .12);
+}
+
+html[data-theme-preset="ocean"] {
+  --font-primary: "Segoe UI", Arial, sans-serif; --font-heading: var(--font-primary); --font-brand: "Segoe UI", Arial, sans-serif;
+  --radius-sm: 5px; --radius-md: 7px; --radius-lg: 9px; --radius-xl: 12px;
+  --page-padding: 20px; --card-padding: 16px; --form-gap: 13px;
+  --sidebar-expanded-width: 224px; --sidebar-collapsed-width: 66px; --topbar-height: 58px; --submenu-width: 248px;
+  --input-height: 40px; --button-height: 38px; --table-row-height: 42px; --icon-size: 16px;
+  --primary-deep: #12345b; --primary-strong: #174a7e; --primary: #1f63a5; --primary-medium: #2f7fc5; --primary-light: #4c98d8;
+  --primary-soft: #dcecf9; --primary-subtle: #f1f7fc; --accent: #14b8a6; --accent-teal: #0891b2; --info: #2563eb;
+  --light-text-primary: #102033; --light-text-secondary: #40566f; --light-text-muted: #718096; --light-border: #d9e2ec; --light-surface: #ffffff; --light-canvas: #f4f8fb;
+  --dark-sidebar-start: #081726; --dark-sidebar-mid: #06111d; --dark-sidebar-end: #030914;
+  --shadow-color-primary: rgba(31, 99, 165, .11); --shadow-color-sidebar: rgba(18, 52, 91, .18);
+}
+
+html[data-theme-preset="violet"] {
+  --font-primary: Inter, "Segoe UI", sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 10px; --radius-md: 12px; --radius-lg: 18px; --radius-xl: 22px;
+  --page-padding: 22px; --card-padding: 18px; --form-gap: 16px;
+  --sidebar-expanded-width: 230px; --sidebar-collapsed-width: 68px; --topbar-height: 62px; --submenu-width: 254px;
+  --input-height: 44px; --button-height: 42px; --table-row-height: 46px; --icon-size: 17px;
+  --primary-deep: #3f246b; --primary-strong: #56328e; --primary: #7145b5; --primary-medium: #8b5dcc; --primary-light: #a77be0;
+  --primary-soft: #eee5fb; --primary-subtle: #f8f4fd; --accent: #ec4899; --accent-teal: #14b8a6; --info: #6366f1;
+  --light-text-primary: #211a2d; --light-text-secondary: #51455f; --light-text-muted: #82768d; --light-border: #e6def0; --light-surface: #ffffff; --light-canvas: #faf7fd;
+  --dark-sidebar-start: #160d26; --dark-sidebar-mid: #0d0817; --dark-sidebar-end: #07040d;
+  --shadow-color-primary: rgba(113, 69, 181, .12); --shadow-color-sidebar: rgba(63, 36, 107, .18);
+}
+
+html[data-theme-preset="ruby"] {
+  --font-primary: Arial, Helvetica, sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 3px; --radius-md: 4px; --radius-lg: 6px; --radius-xl: 8px;
+  --page-padding: 18px; --card-padding: 14px; --form-gap: 12px;
+  --sidebar-expanded-width: 214px; --sidebar-collapsed-width: 62px; --topbar-height: 54px; --submenu-width: 232px;
+  --input-height: 38px; --button-height: 36px; --table-row-height: 39px; --icon-size: 15px;
+  --primary-deep: #651c2a; --primary-strong: #84283a; --primary: #a9344a; --primary-medium: #c64861; --primary-light: #dc6579;
+  --primary-soft: #f6dfe4; --primary-subtle: #fcf3f5; --accent: #d97706; --accent-teal: #0f766e; --info: #3b82f6;
+  --light-text-primary: #211518; --light-text-secondary: #59454a; --light-text-muted: #88767a; --light-border: #eadcdf; --light-surface: #ffffff; --light-canvas: #faf7f8;
+  --dark-sidebar-start: #25090f; --dark-sidebar-mid: #150509; --dark-sidebar-end: #0b0204;
+  --shadow-color-primary: rgba(169, 52, 74, .10); --shadow-color-sidebar: rgba(101, 28, 42, .18);
+}
+
+html[data-theme-preset="amber"] {
+  --font-primary: "Trebuchet MS", "Segoe UI", sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 9px; --radius-md: 11px; --radius-lg: 15px; --radius-xl: 20px;
+  --page-padding: 22px; --card-padding: 18px; --form-gap: 15px;
+  --sidebar-expanded-width: 226px; --sidebar-collapsed-width: 66px; --topbar-height: 60px; --submenu-width: 250px;
+  --input-height: 43px; --button-height: 41px; --table-row-height: 45px; --icon-size: 17px;
+  --primary-deep: #6b3f08; --primary-strong: #8b540a; --primary: #a96a0c; --primary-medium: #c68418; --primary-light: #dda13b;
+  --primary-soft: #faedcf; --primary-subtle: #fdf8ed; --accent: #0f766e; --accent-teal: #0d9488; --info: #2563eb;
+  --light-text-primary: #251d12; --light-text-secondary: #5d5140; --light-text-muted: #8a7c67; --light-border: #eadfcb; --light-surface: #fffefa; --light-canvas: #fbf7ef;
+  --dark-sidebar-start: #241606; --dark-sidebar-mid: #140d04; --dark-sidebar-end: #0b0702;
+  --shadow-color-primary: rgba(169, 106, 12, .12); --shadow-color-sidebar: rgba(107, 63, 8, .18);
+}
+
+html[data-theme-preset="teal"] {
+  --font-primary: Inter, "Segoe UI", sans-serif; --font-heading: var(--font-primary); --font-brand: var(--font-primary);
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 10px; --radius-xl: 14px;
+  --page-padding: 18px; --card-padding: 14px; --form-gap: 12px;
+  --sidebar-expanded-width: 204px; --sidebar-collapsed-width: 62px; --topbar-height: 54px; --submenu-width: 230px;
+  --input-height: 38px; --button-height: 36px; --table-row-height: 39px; --icon-size: 15px;
+  --primary-deep: #0b4b4d; --primary-strong: #0d6265; --primary: #0f7b7e; --primary-medium: #159699; --primary-light: #2db0b2;
+  --primary-soft: #d8f1f1; --primary-subtle: #f0f9f9; --accent: #f59e0b; --accent-teal: #0ea5a0; --info: #0284c7;
+  --light-text-primary: #102324; --light-text-secondary: #3e5a5b; --light-text-muted: #728889; --light-border: #d8e6e6; --light-surface: #ffffff; --light-canvas: #f4f9f9;
+  --dark-sidebar-start: #062123; --dark-sidebar-mid: #031416; --dark-sidebar-end: #020a0b;
+  --shadow-color-primary: rgba(15, 123, 126, .10); --shadow-color-sidebar: rgba(11, 75, 77, .18);
+}
+
+html[data-theme-preset="indigo"] {
+  --font-primary: "Segoe UI", Inter, sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 7px; --radius-md: 9px; --radius-lg: 12px; --radius-xl: 16px;
+  --page-padding: 20px; --card-padding: 16px; --form-gap: 14px;
+  --sidebar-expanded-width: 218px; --sidebar-collapsed-width: 64px; --topbar-height: 58px; --submenu-width: 244px;
+  --input-height: 40px; --button-height: 38px; --table-row-height: 42px; --icon-size: 16px;
+  --primary-deep: #28356b; --primary-strong: #35468c; --primary: #465bb3; --primary-medium: #6074ce; --primary-light: #7d8fe0;
+  --primary-soft: #e2e7f9; --primary-subtle: #f4f6fd; --accent: #14b8a6; --accent-teal: #0891b2; --info: #3b82f6;
+  --light-text-primary: #151a2b; --light-text-secondary: #454c68; --light-text-muted: #777e98; --light-border: #dfe3ef; --light-surface: #ffffff; --light-canvas: #f6f7fb;
+  --dark-sidebar-start: #0d1229; --dark-sidebar-mid: #080b19; --dark-sidebar-end: #04060e;
+  --shadow-color-primary: rgba(70, 91, 179, .11); --shadow-color-sidebar: rgba(40, 53, 107, .18);
+}
+
+html[data-theme-preset="rose"] {
+  --font-primary: "Segoe UI", Inter, sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 11px; --radius-md: 14px; --radius-lg: 20px; --radius-xl: 26px;
+  --page-padding: 24px; --card-padding: 20px; --form-gap: 17px;
+  --sidebar-expanded-width: 236px; --sidebar-collapsed-width: 70px; --topbar-height: 64px; --submenu-width: 262px;
+  --input-height: 46px; --button-height: 44px; --table-row-height: 48px; --icon-size: 18px;
+  --primary-deep: #71314d; --primary-strong: #914260; --primary: #b55676; --primary-medium: #cd6f8c; --primary-light: #df8ea7;
+  --primary-soft: #f7e2e9; --primary-subtle: #fdf5f7; --accent: #8b5cf6; --accent-teal: #0d9488; --info: #6366f1;
+  --light-text-primary: #281a21; --light-text-secondary: #5d4953; --light-text-muted: #8e7983; --light-border: #eadce2; --light-surface: #ffffff; --light-canvas: #fcf7f9;
+  --dark-sidebar-start: #2b101b; --dark-sidebar-mid: #18090f; --dark-sidebar-end: #0d0508;
+  --shadow-color-primary: rgba(181, 86, 118, .12); --shadow-color-sidebar: rgba(113, 49, 77, .18);
+}
+
+html[data-theme-preset="slate"] {
+  --font-primary: Arial, Helvetica, sans-serif; --font-heading: var(--font-primary); --font-brand: var(--font-primary);
+  --font-size-xs: 10px; --font-size-sm: 11px; --font-size-md: 12px; --font-size-base: 13px; --font-size-control: 14px;
+  --radius-sm: 3px; --radius-md: 4px; --radius-lg: 5px; --radius-xl: 7px;
+  --page-padding: 14px; --card-padding: 12px; --form-gap: 9px; --table-cell-x: 9px; --table-cell-y: 7px;
+  --sidebar-expanded-width: 188px; --sidebar-collapsed-width: 58px; --topbar-height: 50px; --submenu-width: 218px;
+  --input-height: 34px; --button-height: 32px; --table-row-height: 34px; --icon-size: 14px;
+  --primary-deep: #27323d; --primary-strong: #374552; --primary: #4b5b68; --primary-medium: #657683; --primary-light: #84939e;
+  --primary-soft: #e4e9ed; --primary-subtle: #f4f6f7; --accent: #2563eb; --accent-teal: #0f766e; --info: #2563eb;
+  --light-text-primary: #171b20; --light-text-secondary: #444d55; --light-text-muted: #737d85; --light-border: #dce1e5; --light-surface: #ffffff; --light-canvas: #f4f6f7;
+  --dark-sidebar-start: #10161c; --dark-sidebar-mid: #090d11; --dark-sidebar-end: #050708;
+  --shadow-color-primary: rgba(75, 91, 104, .08); --shadow-color-sidebar: rgba(39, 50, 61, .16); --card-shadow: none;
+}
+
+html[data-theme-preset="midnight"] {
+  --font-primary: Inter, "Segoe UI", sans-serif; --font-heading: var(--font-primary); --font-brand: Georgia, serif;
+  --radius-sm: 8px; --radius-md: 10px; --radius-lg: 14px; --radius-xl: 18px;
+  --page-padding: 21px; --card-padding: 17px; --form-gap: 14px;
+  --sidebar-expanded-width: 226px; --sidebar-collapsed-width: 66px; --topbar-height: 60px; --submenu-width: 250px;
+  --input-height: 41px; --button-height: 39px; --table-row-height: 43px; --icon-size: 16px;
+  --primary-deep: #14213d; --primary-strong: #1d3158; --primary: #294777; --primary-medium: #3b6096; --primary-light: #5b7eb0;
+  --primary-soft: #dfe7f2; --primary-subtle: #f3f6fa; --accent: #d4a72c; --accent-teal: #0ea5a0; --info: #3b82f6;
+  --light-text-primary: #101827; --light-text-secondary: #3e4b60; --light-text-muted: #738096; --light-border: #dae1eb; --light-surface: #ffffff; --light-canvas: #f4f6fa;
+  --dark-sidebar-start: #07101f; --dark-sidebar-mid: #030915; --dark-sidebar-end: #01050c;
+  --shadow-color-primary: rgba(41, 71, 119, .12); --shadow-color-sidebar: rgba(20, 33, 61, .22); --shadow-color-medium: rgba(0, 0, 0, .26);
+}
+
+/* Preset selector cards use the same customer-theme file for their preview. */
+.theme-preset-card[data-preset="forest"] { --preset-preview-primary:#006647; --preset-preview-secondary:#e6a323; --preset-preview-surface:#f2faf6; }
+.theme-preset-card[data-preset="ocean"] { --preset-preview-primary:#1f63a5; --preset-preview-secondary:#14b8a6; --preset-preview-surface:#f1f7fc; }
+.theme-preset-card[data-preset="violet"] { --preset-preview-primary:#7145b5; --preset-preview-secondary:#ec4899; --preset-preview-surface:#f8f4fd; }
+.theme-preset-card[data-preset="ruby"] { --preset-preview-primary:#a9344a; --preset-preview-secondary:#d97706; --preset-preview-surface:#fcf3f5; }
+.theme-preset-card[data-preset="amber"] { --preset-preview-primary:#a96a0c; --preset-preview-secondary:#0f766e; --preset-preview-surface:#fdf8ed; }
+.theme-preset-card[data-preset="teal"] { --preset-preview-primary:#0f7b7e; --preset-preview-secondary:#f59e0b; --preset-preview-surface:#f0f9f9; }
+.theme-preset-card[data-preset="indigo"] { --preset-preview-primary:#465bb3; --preset-preview-secondary:#14b8a6; --preset-preview-surface:#f4f6fd; }
+.theme-preset-card[data-preset="rose"] { --preset-preview-primary:#b55676; --preset-preview-secondary:#8b5cf6; --preset-preview-surface:#fdf5f7; }
+.theme-preset-card[data-preset="slate"] { --preset-preview-primary:#4b5b68; --preset-preview-secondary:#2563eb; --preset-preview-surface:#f4f6f7; }
+.theme-preset-card[data-preset="midnight"] { --preset-preview-primary:#294777; --preset-preview-secondary:#d4a72c; --preset-preview-surface:#f3f6fa; }
+
+:root,
+html[data-appearance="light"] {
+  color-scheme: light;
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --text-muted: var(--light-text-muted);
+  --text-disabled: var(--light-text-disabled);
+  --border: var(--light-border);
+  --border-strong: var(--light-border-strong);
+  --border-soft: color-mix(in srgb, var(--light-border) 72%, var(--light-surface));
+  --surface: var(--light-surface);
+  --surface-soft: var(--light-surface-soft);
+  --surface-muted: var(--light-surface-muted);
+  --canvas: var(--light-canvas);
+}
+
+html[data-appearance="dark"] {
+  color-scheme: dark;
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --text-muted: var(--dark-text-muted);
+  --text-disabled: color-mix(in srgb, var(--dark-text-muted) 72%, transparent);
+  --border: var(--dark-border);
+  --border-strong: var(--dark-border-strong);
+  --border-soft: color-mix(in srgb, var(--dark-border) 72%, var(--dark-surface));
+  --surface: var(--dark-surface);
+  --surface-soft: var(--dark-surface-elevated);
+  --surface-muted: color-mix(in srgb, var(--dark-surface-elevated) 88%, var(--dark-canvas));
+  --canvas: var(--dark-canvas);
+
+  --surface-alt: color-mix(in srgb, var(--primary-strong) 18%, var(--surface));
+  --surface-hover: color-mix(in srgb, var(--primary) 26%, var(--surface));
+  --table-row-odd: var(--dark-surface);
+  --table-row-even: color-mix(in srgb, var(--primary-strong) 16%, var(--dark-surface));
+  --table-row-hover: color-mix(in srgb, var(--primary) 28%, var(--dark-surface));
+
+  --dark-control: color-mix(in srgb, var(--surface) 94%, var(--neutral-0) 6%);
+  --dark-control-hover: color-mix(in srgb, var(--primary-strong) 22%, var(--surface));
+  --dark-section: color-mix(in srgb, var(--primary-strong) 16%, var(--surface));
+  --dark-section-border: color-mix(in srgb, var(--primary-medium) 28%, var(--border));
+  --dark-sidebar-top: color-mix(in srgb, var(--primary-deep) 48%, var(--dark-sidebar-start));
+  --dark-sidebar-bottom: color-mix(in srgb, var(--primary-strong) 34%, var(--dark-sidebar-start));
+  --shadow-md: 0 14px 36px var(--shadow-color-strong);
+}
