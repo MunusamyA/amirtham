@@ -1,0 +1,100 @@
+name: Deploy Amirtham to Acupuncture
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: amirtham-acupuncture-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: Install Composer dependencies
+        run: |
+          composer install \
+            --no-dev \
+            --prefer-dist \
+            --no-interaction \
+            --no-progress \
+            --optimize-autoloader
+
+      - name: Configure SSH
+        env:
+          PRIVATE_KEY: ${{ secrets.HOSTINGER_PRIVATE_KEY }}
+          KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -e
+
+          mkdir -p ~/.ssh
+
+          printf '%s\n' "$PRIVATE_KEY" > ~/.ssh/amirtham_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+          chmod 600 ~/.ssh/amirtham_key
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Verify deployment target
+        env:
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          USER: ${{ secrets.HOSTINGER_USER }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          TARGET: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+        run: |
+          set -e
+
+          test "$TARGET" = "/home/u923280188/domains/ecommerproject.in/public_html/acupuncture"
+
+          ssh \
+            -i ~/.ssh/amirtham_key \
+            -p "$PORT" \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            "$USER@$HOST" \
+            "test -f '$TARGET/.amirtham-deploy-target' && \
+             test \"\$(cat '$TARGET/.amirtham-deploy-target')\" = 'amirtham:ecommerproject.in:acupuncture'"
+
+      - name: Deploy to Acupuncture
+        env:
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          USER: ${{ secrets.HOSTINGER_USER }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          TARGET: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+        run: |
+          set -e
+
+          rsync -avz \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='uploads/' \
+            --exclude='database/' \
+            --exclude='*.sql' \
+            --exclude='.amirtham-deploy-target' \
+            -e "ssh -i ~/.ssh/amirtham_key -p $PORT -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            ./ \
+            "$USER@$HOST:$TARGET/"
+
+      - name: Deployment completed
+        run: |
+          echo "Amirtham deployed successfully to public_html/acupuncture"
